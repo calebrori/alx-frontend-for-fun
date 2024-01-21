@@ -57,7 +57,7 @@ if __name__ == "__main__":
                     rep.append(j)
             if rep:
                 sliceObj = slice(rep[0], rep[1] + 2)
-            
+       
             toRep = line[sliceObj]
             toHash = toRep[2:-2]
             md = hashlib.md5(toHash.encode()).hexdigest()
@@ -70,9 +70,11 @@ if __name__ == "__main__":
         while '((' in line:
             rep = []
             for j in range(len(line)):
-                if not j == len(line) - 1 and line[j] == '(' and line[j + 1] == '(':
+                if not j == len(line) - 1 and
+                line[j] == '(' and line[j + 1] == '(':
                     rep.append(j)
-                elif not j == len(line) - 1 and line[j] == ")" and line[j + 1] == ')':
+                elif not j == len(line) - 1 and
+                line[j] == ")" and line[j + 1] == ')':
                     rep.append(j)
             if rep:
                 sliceObj = slice(rep[0], rep[1] + 2)
@@ -84,7 +86,7 @@ if __name__ == "__main__":
                 elif char == 'C':
                     toRep = toRep.replace('C', '')
             line = line.replace(s, toRep[2:-2])
-        return line 
+        return line
 
     with open(sys.argv[1], mode='r') as fr, open(sys.argv[2], mode='w+') as fw:
         first = 0
@@ -99,8 +101,8 @@ if __name__ == "__main__":
             if "[[" in line and "]]" in line:
                 line = md5Markdown(line)
             if "((" in line and "))" in line:
-                line = caseMarkdown(line) 
-                     
+                line = caseMarkdown(line)
+     
             # split by spaces
             lineSplit = line.split(' ')
             if lineSplit[0] in markD:
@@ -108,7 +110,8 @@ if __name__ == "__main__":
                 if lineSplit[0].startswith('#'):
                     handleHeadings(lineSplit[0])
                 # Lists
-                elif lineSplit[0].startswith("-") or lineSplit[0].startswith("*"):
+                elif lineSplit[0].startswith("-") or
+                lineSplit[0].startswith("*"):
                     tag = markD[lineSplit[0]]
                     #if its the first item list
                     if not first:

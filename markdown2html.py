@@ -57,7 +57,7 @@ if __name__ == "__main__":
                     rep.append(j)
             if rep:
                 sliceObj = slice(rep[0], rep[1] + 2)
-       
+    
             toRep = line[sliceObj]
             toHash = toRep[2:-2]
             md = hashlib.md5(toHash.encode()).hexdigest()
@@ -102,7 +102,7 @@ if __name__ == "__main__":
                 line = md5Markdown(line)
             if "((" in line and "))" in line:
                 line = caseMarkdown(line)
-     
+    
             # split by spaces
             lineSplit = line.split(' ')
             if lineSplit[0] in markD:
@@ -113,7 +113,7 @@ if __name__ == "__main__":
                 elif lineSplit[0].startswith("-") or
                 lineSplit[0].startswith("*"):
                     tag = markD[lineSplit[0]]
-                    #if its the first item list
+                    # if its the first item list
                     if not first:
                         toWrite = "<{}>\n".format(tag)
                         fw.write(toWrite)
@@ -123,22 +123,25 @@ if __name__ == "__main__":
                     toWrite = toWrite[:-1] + ("</li>\n")
                     fw.write(toWrite)
                     # if its the last item list
-                    if i is len(read) - 1 or not read[i + 1].startswith("{} ".format(first)):
+                    if i is len(read) - 1 or not
+                read[i + 1].startswith("{} ".format(first)):
                         toWrite = "</{}>\n".format(tag)
                         fw.write(toWrite)
                         first = 0
             else:
-                # paragraphs 
+                # paragraphs
                 if line[0] != "\n":
-                    #first paragraph
+                    # first paragraph
                     if not f:
                         fw.write("<p>\n")
                         f = 1
                     fw.write(line)
                     # if next line is part of the paragraph
-                    if i != len(read) - 1 and read[i + 1][0] != "\n" and read[i + 1][0] not in markD:
+                    if i != len(read) - 1 and read[i + 1][0]
+                    != "\n" and read[i + 1][0] not in markD:
                         fw.write("<br/>\n")
-                    else: 
+                    else:
                         fw.write("</p>\n")
                         f = 0
         exit(0)
+        

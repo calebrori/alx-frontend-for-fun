@@ -57,7 +57,7 @@ if __name__ == "__main__":
                     rep.append(j)
             if rep:
                 sliceObj = slice(rep[0], rep[1] + 2)
-    
+
             toRep = line[sliceObj]
             toHash = toRep[2:-2]
             md = hashlib.md5(toHash.encode()).hexdigest()

@@ -8,7 +8,8 @@ if __name__ == "__main__":
     import re
     import hashlib
 
-    markD = {"#": "h1", "##": "h2", "###": "h3", "####": "h4", "#####": "h5", "######": "h6", "-": "ul", "*": "ol"}
+    markD = {"#": "h1", "##": "h2", "###": "h3", "####": "h4",
+             "#####": "h5", "######": "h6", "-": "ul", "*": "ol"}
 
     if len(sys.argv) < 3:
         sys.stderr.write("Usage: ./markdown2html.py README.md README.html\n")
@@ -38,7 +39,7 @@ if __name__ == "__main__":
                 if pattern == "**":
                     line = line.replace(pattern, "</b>", 1)
                     flag = 0
-                else: 
+                else:
                     line = line.replace(pattern, "</em>", 1)
                     flag = 0
         return line
@@ -48,9 +49,11 @@ if __name__ == "__main__":
         while "[[" in line and "]]" in line:
             rep = []
             for j in range(len(line)):
-                if not j == len(line) - 1 and line[j] == '[' and line[j + 1] == '[':
+                if not j == len(line) - 1 and line[j] ==
+                '[' and line[j + 1] == '[':
                     rep.append(j)
-                elif not j == len(line) - 1 and line[j] == "]" and line[j + 1] == ']':
+                elif not j == len(line) - 1 and
+                line[j] == "]" and line[j + 1] == ']':
                     rep.append(j)
             if rep:
                 sliceObj = slice(rep[0], rep[1] + 2)

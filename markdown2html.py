@@ -57,7 +57,7 @@ if __name__ == "__main__":
                     rep.append(j)
             if rep:
                 sliceObj = slice(rep[0], rep[1] + 2)
-    
+
             toRep = line[sliceObj]
             toHash = toRep[2:-2]
             md = hashlib.md5(toHash.encode()).hexdigest()
@@ -102,7 +102,7 @@ if __name__ == "__main__":
                 line = md5Markdown(line)
             if "((" in line and "))" in line:
                 line = caseMarkdown(line)
-    
+
             # split by spaces
             lineSplit = line.split(' ')
             if lineSplit[0] in markD:
@@ -144,4 +144,3 @@ if __name__ == "__main__":
                         fw.write("</p>\n")
                         f = 0
         exit(0)
-        

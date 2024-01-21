@@ -124,8 +124,8 @@ if __name__ == "__main__":
                     fw.write(toWrite)
                     # if its the last item list
                     if i is len(read) - 1 or not
-                read[i + 1].startswith("{} ".format(first)):
-                        toWrite = "</{}>\n".format(tag)
+                read[i + 1].startswith("{} 
+                                       ".format(first)):toWrite = "</{}>\n".format(tag)
                         fw.write(toWrite)
                         first = 0
             else:
